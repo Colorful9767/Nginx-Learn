@@ -183,3 +183,20 @@ server {
   }
   ```
 
+## 15、跨域支持
+
+在nginx配置文件server配置中加入
+
+```
+server {
+  #允许跨域请求的域，*代表所有
+  add_header 'Access-Control-Allow-Origin' *;
+  #允许带上cookie请求
+  add_header 'Access-Control-Allow-Credentials' 'true';
+  #允许请求的方法，比如 GET/POST/PUT/DELETE
+  add_header 'Access-Control-Allow-Methods' *;
+  #允许请求的header
+  add_header 'Access-Control-Allow-Headers' *;
+}
+```
+
