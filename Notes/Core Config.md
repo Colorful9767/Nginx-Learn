@@ -200,3 +200,14 @@ server {
 }
 ```
 
+## 16、防盗链配置支持
+
+```
+#对源站点验证
+valid_referers *.xx.com; 
+#非法引入会进入下方判断
+if ($invalid_referer) {
+    return 404;
+} 
+```
+
