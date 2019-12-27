@@ -37,7 +37,7 @@ mkdir /var/temp/nginx -p
 
 ```bash
 ./configure \
---prefix=/home/admin/Ngnix-Learn/nginx \
+--prefix=/usr/local/nginx \
 --pid-path=/var/temp/nginx/run/nginx.pid \
 --lock-path=/var/temp/nginx/lock/nginx.lock \
 --error-log-path=/var/temp/nginx/logs/error.log \
@@ -52,8 +52,19 @@ mkdir /var/temp/nginx -p
 
 - 配置命令：
 
-  | 命令 | 8、设定日志格式，`main`为定义的格式名称，如此 access_log 就可以直接使用这个变量了 |
-  | :--- | :----------------------------------------------------------- |
+  | 命令                          | 解释                                 |
+  | :---------------------------- | :----------------------------------- |
+  | –prefix                       | 指定nginx安装目录                    |
+  | –pid-path                     | 指向nginx的pid                       |
+  | –lock-path                    | 锁定安装文件，防止被恶意篡改或误操作 |
+  | –error-log                    | 错误日志                             |
+  | –http-log-path                | http日志                             |
+  | –with-http_gzip_static_module | 启用gzip模块，在线实时压缩输出数据流 |
+  | –http-client-body-temp-path   | 设定客户端请求的临时目录             |
+  | –http-proxy-temp-path         | 设定http代理临时目录                 |
+  | –http-fastcgi-temp-path       | 设定fastcgi临时目录                  |
+  | –http-uwsgi-temp-path         | 设定uwsgi临时目录                    |
+  | –http-scgi-temp-path          | 设定scgi临时目录                     |
 
 5、编译安装
 
@@ -101,5 +112,3 @@ admin     7260  1744  0 09:00 pts/0    00:00:00 grep --color=auto nginx
 ```
 
 解决办法:修改`conf/nginx.conf` 将user 默认的`nobody`改为`root`
-
-3、
